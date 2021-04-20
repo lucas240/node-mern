@@ -1,5 +1,5 @@
 ### POST
-POST http://localhost:5000/api/wilder/create HTTP/1.1
+POST http://localhost:5000/api/wilders HTTP/1.1
 Content-Type: application/json
 
 {
@@ -12,10 +12,10 @@ Content-Type: application/json
 }
 
 ### GET
-GET http://localhost:5000/api/wilder/read HTTP/1.1
+GET http://localhost:5000/api/wilders HTTP/1.1
 
 ### PUT
-PUT http://localhost:5000/api/wilder/update
+PUT http://localhost:5000/api/wilders
 Content-Type: application/json
 
 {
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:5000/api/wilder/delete
+DELETE http://localhost:5000/api/wilders
 Content-Type: application/json
 
 {"_id": "6076e179f9361d15e97c7287"}

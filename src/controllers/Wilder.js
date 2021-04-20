@@ -14,21 +14,12 @@ module.exports = {
   },
   update: async (req, res) => {
     const result = await WilderModel.updateOne({ _id: req.body._id }, req.body);
-    if (result.nModified === 0) throw createError(400, `Id not found`);
+    if (result.nModified === 0) throw createError(404, `Id not found`);
     res.json({ success: true, result });
   },
-  delete: (req, res) => {
-    WilderModel.deleteOne({ _id: req.body._id })
-      .then((result) => {
-        if (!result)
-          res.json({
-            success: false,
-            result: "No result with such ID was found",
-          });
-        res.json({ success: true, result });
-      })
-      .catch((err) => {
-        res.json({ success: false, err });
-      });
+  delete: async (req, res) => {
+    const result = await WilderModel.deleteOne({ _id: req.body._id });
+    if (!result) throw createError(404, `No result with such ID was found`);
+    res.json({ success: true, result });
   },
 };
